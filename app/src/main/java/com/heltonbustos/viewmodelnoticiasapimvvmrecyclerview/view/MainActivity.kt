@@ -1,8 +1,12 @@
 package com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.VISIBLE
             mainViewModel.obBtnTraerNoticias()
         }
+
     }
 
     /**
@@ -53,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             //binding.txtNoticias.append("${Gson().toJson(it)}")
             binding.progressBar.visibility = View.GONE
 
-            adaptador = AdaptadorRecycler(applicationContext, it.data);
+            adaptador = AdaptadorRecycler(this, it.data, this);
             myRecyclerView.adapter = adaptador
 
         })

@@ -1,22 +1,29 @@
 package com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.modelo.recycler
 
+import android.app.Application
 import android.content.Context
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.R
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.modelo.retrofit.Data
-import com.squareup.picasso.Picasso
+import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view.DetalleNoticia
+import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view.MainActivity
+
 
 class AdaptadorRecycler(var context: Context,
-                        var listDatos: List<Data>) :
+                        var listDatos: List<Data>,
+                        var app: AppCompatActivity) :
     RecyclerView.Adapter<AdaptadorRecycler.ViewHolderDatos>() {
 
 
@@ -35,6 +42,19 @@ class AdaptadorRecycler(var context: Context,
             .load(listDatos[position].image)
             .error(R.drawable.sinimagen)
             .into(holder.imagen);
+
+        holder.itemView.setOnClickListener {
+            //var detalle = Gson().toJson(listDatos[holder.layoutPosition])
+            var detalle = listDatos[holder.layoutPosition].title
+
+            Toast.makeText(context,
+                detalle,
+                Toast.LENGTH_SHORT)
+                .show()
+
+            //val intent = Intent(app, DetalleNoticia::class.java)
+            //context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -52,9 +72,9 @@ class AdaptadorRecycler(var context: Context,
             titulo = itemView.findViewById(R.id.myTitulo)
             descripcion = itemView.findViewById(R.id.myDes)
         }
-
-
     }
+
+
 
 
 }

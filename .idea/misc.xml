@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/helto/AndroidStudioProjects/ViewModelNoticiasAPIMVVMRecyclerView/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.146" />
+        <entry key="..\:/Users/helto/AndroidStudioProjects/ViewModelNoticiasAPIMVVMRecyclerView/app/src/main/res/layout/activity_detalle_noticia.xml" value="0.34923076923076923" />
         <entry key="..\:/Users/helto/AndroidStudioProjects/ViewModelNoticiasAPIMVVMRecyclerView/app/src/main/res/layout/activity_main.xml" value="0.340625" />
         <entry key="..\:/Users/helto/AndroidStudioProjects/ViewModelNoticiasAPIMVVMRecyclerView/app/src/main/res/layout/items_recycler.xml" value="0.26423200859291085" />
       </map>
