@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ViewModelNoticiasAPIMVVMRecyclerView"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.SegundaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DetalleNoticia"
             android:exported="false" />
         <activity

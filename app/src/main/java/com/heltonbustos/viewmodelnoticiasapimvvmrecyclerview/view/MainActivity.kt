@@ -1,19 +1,16 @@
 package com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.heltonbustos.viewmodel3noticiasapi.viewmodel.ViewModel
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.databinding.ActivityMainBinding
-import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.modelo.recycler.AdaptadorRecycler
+import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.recycler.AdaptadorRecycler
 
 class MainActivity : AppCompatActivity() {
     //viewmodel
@@ -24,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     //recyclerview
     private lateinit var myRecyclerView: RecyclerView
-    private lateinit var adaptador:AdaptadorRecycler
+    private lateinit var adaptador: AdaptadorRecycler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

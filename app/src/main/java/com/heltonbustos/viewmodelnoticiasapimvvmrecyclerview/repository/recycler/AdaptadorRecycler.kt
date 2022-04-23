@@ -1,6 +1,5 @@
-package com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.modelo.recycler
+package com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.recycler
 
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.text.Html
@@ -11,19 +10,18 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.R
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.repository.modelo.retrofit.Data
-import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view.DetalleNoticia
 import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view.MainActivity
+import com.heltonbustos.viewmodelnoticiasapimvvmrecyclerview.view.SegundaActivity
 
 
 class AdaptadorRecycler(var context: Context,
                         var listDatos: List<Data>,
-                        var app: AppCompatActivity) :
+                        var actividad: MainActivity) :
     RecyclerView.Adapter<AdaptadorRecycler.ViewHolderDatos>() {
 
 
@@ -44,18 +42,15 @@ class AdaptadorRecycler(var context: Context,
             .into(holder.imagen);
 
         holder.itemView.setOnClickListener {
-            //var detalle = Gson().toJson(listDatos[holder.layoutPosition])
-            var detalle = listDatos[holder.layoutPosition].title
+            var detalle = Gson().toJson(listDatos[holder.layoutPosition])
 
-            Toast.makeText(context,
-                detalle,
-                Toast.LENGTH_SHORT)
-                .show()
-
-            //val intent = Intent(app, DetalleNoticia::class.java)
-            //context.startActivity(intent)
+            var intent = Intent(actividad, SegundaActivity::class.java)
+            intent.putExtra("data", detalle)
+            actividad.startActivity(intent)
         }
     }
+
+
 
     override fun getItemCount(): Int {
         return listDatos.size
@@ -67,10 +62,14 @@ class AdaptadorRecycler(var context: Context,
         var titulo: TextView
         var descripcion: TextView
 
+        //contexto
+        var con: Context
+
         init {
             imagen = itemView.findViewById(R.id.myImagen)
             titulo = itemView.findViewById(R.id.myTitulo)
             descripcion = itemView.findViewById(R.id.myDes)
+            con = context
         }
     }
 
